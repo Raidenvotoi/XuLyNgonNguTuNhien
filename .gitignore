@@ -1,0 +1,8 @@
+*.pyc
+__pycache__/
+ag_news
+ag_news_combined
+gpt2_*
+imdb_dataset
+testsele
+
