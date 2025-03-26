@@ -371,7 +371,7 @@ if st.session_state.step == 1:
             stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
             text = stringio.read()
             # st.session_state.text = textVanw
-            data = {'title': "Văn bản của người dùng", 'ups': 0, 'text': text, }
+            data = {'title': ["Văn bản của người dùng"], 'ups': [0], 'text': text, }
             st.session_state.df = pd.DataFrame.from_dict(data)
             # st.text_area("Nội dung tệp:", text, height=150)
     elif option == "Nhập số để lấy văn bản":
@@ -972,6 +972,7 @@ elif st.session_state.step == 5:
         pipline_cls=make_pipeline(model_encode,model_Classification)
         pipline_cls.fit(train_texts,train_labels)
         y_pred=pipline_cls.predict(test_texts)
+        st.session_state.pipsave=pipline_cls
         
                 # sentences.append({"title": row["title"], "sentence": sentence})
                 
