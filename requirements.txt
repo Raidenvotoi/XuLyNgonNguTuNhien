@@ -20,3 +20,4 @@ praw
 transformers
 tensorflow
 tensorflow-hub
+en-core-web-sm
