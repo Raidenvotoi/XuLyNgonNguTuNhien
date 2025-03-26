@@ -343,6 +343,10 @@ progress = st.progress(0)
 progress.progress(st.session_state.step/5)
     
 if st.session_state.step == 1:
+    nltk.download('punkt_tab')
+    nltk.download('stopwords')
+    nltk.download('averaged_perceptron_tagger_eng')
+    nltk.download('wordnet')
     st.header("Bước 1 Thu thập dữ liệu ")
     if "text" not in st.session_state:
         st.session_state.text = []
@@ -611,10 +615,7 @@ elif st.session_state.step == 3:
             #     st.write(f"**{token.text}** ← ({token.dep_}) ← **{token.head.text}**")
 
 elif st.session_state.step == 4:
-    nltk.download('punkt_tab')
-    nltk.download('stopwords')
-    nltk.download('averaged_perceptron_tagger_eng')
-    nltk.download('wordnet')
+    
     nlp = spacy.load("en_core_web_sm")
     elmo = hub.load("https://tfhub.dev/google/elmo/3")
     st.header("Bước 4 Text Representation")
